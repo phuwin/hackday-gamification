@@ -29,14 +29,11 @@ handler.on('error', (err) => {
 handler.on('push', async ({ payload }) => {
   const github = payload.sender.login;
   console.log(`received a push from ${github}`);
-  console.log(`received a push from ${github}`);
-  console.log(`received a push from ${github}`);
-  console.log(`received a push from ${github}`);
   try {
     await userHandler(github);
     await increaseAttributeByOne(github, 'pushes');
   } catch (e) {
-    console.error('Something goes wrong');
+    console.error('Something went wrong');
   }
 });
 
